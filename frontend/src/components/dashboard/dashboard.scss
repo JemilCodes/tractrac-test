@@ -1,0 +1,149 @@
+.dash__container {
+    height: 984.67px;
+    background-color: var(--dash-background-color);
+    display: flex;
+    padding: 20px;
+    .dash__side {
+        width: 20%;
+        height: 100%;
+        background-color: var(--dash-side-back-color);
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+        margin-right: 20px;
+
+        .dash__side__header {
+            border-bottom: 3px solid #D3D3D3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .dash__side__header__logo {
+                display: flex;
+                align-items: center;
+                height: 87.12px;
+                margin-left: 30px;
+                img {
+                    margin-right: 5px;
+                    width: 40px;
+                    height: 50px;
+                }
+                p {
+                    font-size: 20px;
+                }
+            }
+
+            img {
+                width: 30px;
+                height: 10px;
+                margin-right: 20px;
+            }
+        }
+    }
+    .dash__main {
+        width: 80%;
+
+        .dash__main__header {
+            display: flex;
+            align-items: center;
+            height: 87.12px;
+            background-color: var(--dash-side-back-color);
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+            padding: 20px;
+
+            .dash__main__header__search {
+                width: 70%;
+                height: 40.59px;
+                border-radius: 15px;
+                -webkit-border-radius: 15px;
+                -moz-border-radius: 15px;
+                -ms-border-radius: 15px;
+                -o-border-radius: 15px;
+                border: none;
+                outline: none;
+                padding: 1em;
+                margin-right: 20px;
+            }
+            .dash__main__header__noti {
+                background-color: white;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 20px;
+            }
+            .dash__main__header__circle {
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                background-color: #D6D6D6;
+                margin-left: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+            .dash__main__header__title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin: 0 20px;
+
+                p {
+                    color: var(--forgot-color);
+                }
+                b {
+                    color: var(--input-color);
+                    font-size: 10px;
+                }
+
+            }
+        }
+
+        .dash__main__greeting {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+
+            .dash__main__greeting__2 {
+                color: var(--input-color);
+            }
+
+        }
+        .dash__main__switch {
+            p {
+                color: var(--input-color);
+            }
+        }
+    }
+}
+
+.switch {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius:50% ;
+    -webkit-border-radius:50% ;
+    -moz-border-radius:50% ;
+    -ms-border-radius:50% ;
+    -o-border-radius:50% ;
+}
+
