@@ -1,7 +1,9 @@
 const PatientModel = require("../models/patientModel");
 
 const isLoggedIn = async (req, res) => {
+  console.log("hi");
   const { email } = req.cookies;
+  console.log("hiii", email);
 
   const userData = await PatientModel.findOne({ email });
   if (!userData) {

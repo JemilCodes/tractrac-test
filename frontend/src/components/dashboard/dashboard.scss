@@ -15,7 +15,7 @@
         margin-right: 20px;
 
         .dash__side__header {
-            border-bottom: 3px solid #D3D3D3;
+            border-bottom: 2px solid #D3D3D3;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -26,12 +26,13 @@
                 height: 87.12px;
                 margin-left: 30px;
                 img {
-                    margin-right: 5px;
+                    margin-right: 15px;
                     width: 40px;
                     height: 50px;
                 }
                 p {
                     font-size: 20px;
+                    color: var(--input-color);
                 }
             }
 
@@ -123,12 +124,56 @@
             justify-content: space-between;
             margin: 20px 0;
 
-            .dash__main__greeting__2 {
-                color: var(--input-color);
+            .dash__main__greeting__name {
+                .dash__main__greeting__2 {
+                    color: var(--input-color);
+                }
+            }
+
+            .dash__main__greeting__switch {
+                display: flex;
+                align-items: center;
+
+                img {
+                    margin-right: 25px;
+                }
+                .switch {
+                    position: relative;
+                    width: 40px;
+                    height: 20px;
+                    margin-right: 8px;
+                    display: flex;
+                    align-items: center;
+                    background-color: #f7f7f7;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    .switch__circle {
+                        position: absolute;
+                        left: 0;
+                        width: 20px;
+                        height: 20px;
+                        border-radius:50% ;
+                        -webkit-border-radius:50% ;
+                        -moz-border-radius:50% ;
+                        -ms-border-radius:50% ;
+                        -o-border-radius:50% ;
+                        background-color: var(--switch-color);
+                        transition: all linear 0.5s;
+                        -webkit-transition: all linear 0.5s;
+                        -moz-transition: all linear 0.5s;
+                        -ms-transition: all linear 0.5s;
+                        -o-transition: all linear 0.5s;
+                        
+                    }
+                }
+                p {
+                    color: var(--input-color);
+                }
             }
 
         }
         .dash__main__switch {
+            
             p {
                 color: var(--input-color);
             }
@@ -136,14 +181,4 @@
     }
 }
 
-.switch {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius:50% ;
-    -webkit-border-radius:50% ;
-    -moz-border-radius:50% ;
-    -ms-border-radius:50% ;
-    -o-border-radius:50% ;
-}
 

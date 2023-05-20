@@ -19,6 +19,7 @@ const Form = ({ formType }) => {
         `http://localhost:5000/tratrac-health/api/v1/auth/${formType}`,
         {
           method: "POST",
+          credentials: "include",
           headers: { "content-Type": "application/json" },
           body: JSON.stringify({
             email: emailRef.current.value,

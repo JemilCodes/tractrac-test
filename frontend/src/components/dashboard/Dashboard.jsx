@@ -5,10 +5,15 @@ import Logo from "../../assets/img/logo.png";
 import expand from "../../assets/img/expand.png";
 import noti from "../../assets/img/noti.png";
 import line from "../../assets/img/line.png";
-import contrast from "../../assets/img/contrast.png";
+import contrastLogo from "../../assets/img/contrast.png";
+
+import { reactLocalStorage } from "reactjs-localstorage";
 
 const Dashboard = () => {
   const [patientData, setPatientData] = useState();
+  const [contrast, setContrast] = useState(
+    reactLocalStorage.get("contrast", "light", true)
+  );
   useEffect(() => {
     const handleAsync = async () => {
       const response = await fetch(
@@ -23,7 +28,9 @@ const Dashboard = () => {
     handleAsync();
   }, []);
   const handleToggle = (id) => {
+    console.log(id);
     document.documentElement.className = id;
+    reactLocalStorage.set("contrast", id);
   };
   return (
     <div className="dash__container">
@@ -47,24 +54,38 @@ const Dashboard = () => {
             <div className="dash__main__header__circleg"></div>
           </div>
           <div className="dash__main__header__title">
-            <b>{patientData?.email}</b>
+            <b>{patientData?.email || "jemiluishaqodoba@gmail.com"}</b>
             <p>PATIENT</p>
           </div>
         </div>
         <div className="dash__main__greeting">
           <div className="dash__main__greeting__name">
-            <b style={{ color: "#F80D38" }}>{patientData?.name}</b>
+            <b style={{ color: "#F80D38" }}>Jemilu</b>
             <p className="dash__main__greeting__2">How are you doing?</p>
           </div>
           <div className="dash__main__greeting__switch">
-            <img alt="contrast" src={contrast} />
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div className="switch">
-                <div className="switch_circle"></div>
-                <div className="switch_line"></div>
-              </div>
-              <p>Apply Dark Theme</p>
+            <img alt="contrast" src={contrastLogo} />
+            <div
+              className="switch"
+              onClick={() => {
+                if (contrast === "light") {
+                  handleToggle("dark");
+                  setContrast("dark");
+                  return;
+                }
+                if (contrast === "dark") {
+                  handleToggle("light");
+                  setContrast("light");
+                  return;
+                }
+              }}
+            >
+              <div
+                style={{ left: contrast === "light" ? "0" : "20px" }}
+                className="switch__circle"
+              ></div>
             </div>
+            <p>Apply Dark Theme</p>
           </div>
         </div>
       </div>
