@@ -48,9 +48,10 @@ const register = async (req, res) => {
     );
 
     if (logged.isLoggedIn === true) {
-      const { email, isLoggedIn } = logged;
+      const { email, name, isLoggedIn } = logged;
       const user = {
         email,
+        name,
         isLoggedIn,
       };
       return res.status(StatusCodes.OK).json(user);

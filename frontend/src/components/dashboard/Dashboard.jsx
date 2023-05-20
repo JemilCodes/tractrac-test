@@ -15,17 +15,17 @@ const Dashboard = () => {
     reactLocalStorage.get("contrast", "light", true)
   );
   useEffect(() => {
-    const handleAsync = async () => {
-      const response = await fetch(
-        `http://localhost:5000/tratrac-health/api/v1/auth/isLoggedIn`,
-        {
-          credentials: "include",
-        }
-      );
-      console.log(response);
-      setPatientData(response);
-    };
-    handleAsync();
+    fetch(`http://localhost:5000/tratrac-health/api/v1/auth/isLoggedIn`, {
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        setPatientData(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   const handleToggle = (id) => {
     console.log(id);
@@ -54,13 +54,15 @@ const Dashboard = () => {
             <div className="dash__main__header__circleg"></div>
           </div>
           <div className="dash__main__header__title">
-            <b>{patientData?.email || "jemiluishaqodoba@gmail.com"}</b>
+            <b>{patientData?.email || "loading..."}</b>
             <p>PATIENT</p>
           </div>
         </div>
         <div className="dash__main__greeting">
           <div className="dash__main__greeting__name">
-            <b style={{ color: "#F80D38" }}>Jemilu</b>
+            <b style={{ color: "#F80D38" }}>
+              {patientData?.name || "loading..."}
+            </b>
             <p className="dash__main__greeting__2">How are you doing?</p>
           </div>
           <div className="dash__main__greeting__switch">

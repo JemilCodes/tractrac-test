@@ -6,7 +6,6 @@ const handleCookies = require("../utils/handleCookies");
 
 async function login(req, res) {
   const { email, password } = req.body;
-  console.log(email, password);
   if (!email || !password) {
     return res.status(StatusCodes.BAD_REQUEST).json("invalidLogin");
   }
@@ -40,9 +39,10 @@ async function login(req, res) {
     }
 
     if (logged.isLoggedIn === true) {
-      const { name, email, joined, isLoggedIn } = logged;
+      const { name, email, isLoggedIn } = logged;
       const user = {
         email,
+        name,
         isLoggedIn,
       };
       return res.status(StatusCodes.OK).json(user);

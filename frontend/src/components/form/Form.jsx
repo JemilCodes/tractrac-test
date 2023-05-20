@@ -13,30 +13,26 @@ const Form = ({ formType }) => {
   const passwordRef = useRef();
   const emailRef = useRef();
 
-  const handleAsync = async () => {
-    try {
-      await fetch(
-        `http://localhost:5000/tratrac-health/api/v1/auth/${formType}`,
-        {
-          method: "POST",
-          credentials: "include",
-          headers: { "content-Type": "application/json" },
-          body: JSON.stringify({
-            email: emailRef.current.value,
-            password: passwordRef.current.value,
-            ...(formType === "register" && { name: nameRef.current.value }),
-          }),
+  const handleAsync = () => {
+    fetch(`http://localhost:5000/tratrac-health/api/v1/auth/${formType}`, {
+      method: "POST",
+      credentials: "include",
+      headers: { "content-Type": "application/json" },
+      body: JSON.stringify({
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+        ...(formType === "register" && { name: nameRef.current.value }),
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if ("email" in result) {
+          navigate("/dash");
         }
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          if ("email" in result) {
-            navigate("/dash");
-          }
-        });
-    } catch (err) {
-      console.log(err);
-    }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
