@@ -1,6 +1,6 @@
 # tractrac-test
 # Clone the repository
-The project files are in the master branch 
+The project files are in the master branch, 
 run git clone <repository-url>
 # Install dependencies
 cd <project-folder>
