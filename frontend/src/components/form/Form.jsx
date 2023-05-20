@@ -6,14 +6,15 @@ import Input from "../input/Input";
 import { useNavigate } from "react-router-dom";
 
 const Form = ({ formType }) => {
-  const [patientData, setPatientData] = useState();
-
   const navigate = useNavigate();
   const nameRef = useRef();
   const passwordRef = useRef();
   const emailRef = useRef();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleAsync = () => {
+    setIsLoading(true);
     fetch(`http://localhost:5000/tratrac-health/api/v1/auth/${formType}`, {
       method: "POST",
       credentials: "include",
@@ -26,6 +27,7 @@ const Form = ({ formType }) => {
     })
       .then((res) => res.json())
       .then((result) => {
+        setIsLoading(false);
         if ("email" in result) {
           navigate("/dash");
         }
@@ -67,7 +69,9 @@ const Form = ({ formType }) => {
         )}
         <div className="form__submit">
           <button onClick={handleAsync}>
-            {formType === "register" ? "register" : "login"}
+            {formType === "register" && !isLoading && "register"}
+            {formType === "login" && !isLoading && "login"}
+            {isLoading && "Loading..."}
           </button>
         </div>
         {formType === "register" && (

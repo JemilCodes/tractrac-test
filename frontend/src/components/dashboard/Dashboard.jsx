@@ -5,12 +5,20 @@ import Logo from "../../assets/img/logo.png";
 import expand from "../../assets/img/expand.png";
 import noti from "../../assets/img/noti.png";
 import line from "../../assets/img/line.png";
-import contrastLogo from "../../assets/img/contrast.png";
+import appoint from "../../assets/img/appoint.png";
+import chat from "../../assets/img/chat.png";
+import mon from "../../assets/img/mon.png";
+import patient from "../../assets/img/patient.png";
 
+import Menu from "../menu/Menu";
+
+import { useNavigate } from "react-router-dom";
 import { reactLocalStorage } from "reactjs-localstorage";
+import { ImBrightnessContrast } from "react-icons/im";
 
 const Dashboard = () => {
   const [patientData, setPatientData] = useState();
+  const navigate = useNavigate();
   const [contrast, setContrast] = useState(
     reactLocalStorage.get("contrast", "light", true)
   );
@@ -21,6 +29,9 @@ const Dashboard = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
+        if (result === "false") {
+          navigate("/login");
+        }
         setPatientData(result);
       })
       .catch((err) => {
@@ -28,10 +39,43 @@ const Dashboard = () => {
       });
   }, []);
   const handleToggle = (id) => {
-    console.log(id);
     document.documentElement.className = id;
     reactLocalStorage.set("contrast", id);
   };
+  const menu = [
+    {
+      name: "Overview",
+      Logo: mon,
+    },
+    {
+      name: "Appointment",
+      Logo: appoint,
+    },
+    {
+      name: "Patient",
+      Logo: patient,
+    },
+    {
+      name: "Chats",
+      Logo: chat,
+    },
+  ];
+  const menu2 = [
+    {
+      name: "Settings",
+      Logo: mon,
+    },
+    {
+      name: "Logout",
+      Logo: appoint,
+    },
+  ];
+  const MenuItems = menu.map(({ Logo, name }) => {
+    return <Menu Logo={Logo} name={name} key={name} />;
+  });
+  const MenuItems2 = menu2.map(({ Logo, name }) => {
+    return <Menu Logo={Logo} name={name} key={name} />;
+  });
   return (
     <div className="dash__container">
       <div className="dash__side">
@@ -42,6 +86,12 @@ const Dashboard = () => {
           </div>
           <img alt="expand" src={expand} />
         </div>
+        {MenuItems}
+        <div className="side__acount">
+          <b>Account</b>
+        </div>
+        {MenuItems2}
+        <div className="side__footer"></div>
       </div>
       <div className="dash__main">
         <div className="dash__main__header">
@@ -66,7 +116,10 @@ const Dashboard = () => {
             <p className="dash__main__greeting__2">How are you doing?</p>
           </div>
           <div className="dash__main__greeting__switch">
-            <img alt="contrast" src={contrastLogo} />
+            <ImBrightnessContrast
+              style={{ color: contrast === "dark" ? "white" : "" }}
+              className="contrast"
+            />
             <div
               className="switch"
               onClick={() => {

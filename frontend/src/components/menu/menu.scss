@@ -1,0 +1,14 @@
+.menu__cont {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    img {
+        width: 20px;
+        height: 20px;
+    }
+    p {
+        color: var(--input-color);
+        margin-left: 20px;
+    }
+}

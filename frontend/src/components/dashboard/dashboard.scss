@@ -4,6 +4,7 @@
     display: flex;
     padding: 20px;
     .dash__side {
+        position: relative;
         width: 20%;
         height: 100%;
         background-color: var(--dash-side-back-color);
@@ -19,6 +20,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 20px;
 
             .dash__side__header__logo {
                 display: flex;
@@ -41,6 +43,25 @@
                 height: 10px;
                 margin-right: 20px;
             }
+
+          
+        }
+        .side__acount {
+            color: var(--input-color);
+            font-size: 16px;
+            padding: 20px;
+            margin-bottom: 10px;
+            
+        }
+        .side__footer {
+            position: absolute;
+            bottom: 0;
+            border-top: 2px solid #D3D3D3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 87.7px;
         }
     }
     .dash__main {
@@ -134,7 +155,7 @@
                 display: flex;
                 align-items: center;
 
-                img {
+                .contrast {
                     margin-right: 25px;
                 }
                 .switch {
@@ -158,13 +179,12 @@
                         -ms-border-radius:50% ;
                         -o-border-radius:50% ;
                         background-color: var(--switch-color);
-                        transition: all linear 0.5s;
-                        -webkit-transition: all linear 0.5s;
-                        -moz-transition: all linear 0.5s;
-                        -ms-transition: all linear 0.5s;
-                        -o-transition: all linear 0.5s;
-                        
-                    }
+                        transition: all linear 0.2s;
+                        -webkit-transition: all linear 0.2s;
+                        -moz-transition: all linear 0.2s;
+                        -ms-transition: all linear 0.2s;
+                        -o-transition: all linear 0.2s;
+}
                 }
                 p {
                     color: var(--input-color);
