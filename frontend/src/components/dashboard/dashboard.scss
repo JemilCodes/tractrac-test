@@ -1,5 +1,5 @@
 .dash__container {
-    height: 984.67px;
+    height: 1143px;
     background-color: var(--dash-background-color);
     display: flex;
     padding: 20px;
@@ -58,10 +58,40 @@
             bottom: 0;
             border-top: 2px solid #D3D3D3;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             width: 100%;
             height: 87.7px;
+
+            .side__footer__1 {
+                width: 40px;
+                height: 40px;
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #100DB1;
+                margin-right: 15px;
+
+            }
+            .side__footer__2 {
+                b {
+                    color: #F80D38;
+                }
+                div {
+                    display: flex;
+                    p {
+                        color: var(--input-color);
+                        font-size: 10px;
+                        margin-right: 10px;
+                    }
+                }
+
+            }
         }
     }
     .dash__main {
@@ -91,6 +121,7 @@
                 outline: none;
                 padding: 1em;
                 margin-right: 20px;
+                font-family: Poppins-Regular;
             }
             .dash__main__header__noti {
                 background-color: white;
@@ -184,13 +215,82 @@
                         -moz-transition: all linear 0.2s;
                         -ms-transition: all linear 0.2s;
                         -o-transition: all linear 0.2s;
-}
+                    }
                 }
                 p {
                     color: var(--input-color);
                 }
             }
 
+        }
+        .dash__main__content {
+            display: flex;
+
+            .dash__main__contnent__1 {
+                width: 70%;
+                margin-right: 25px;
+
+                .dash__main__contnent__1__graph {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr;
+                    grid-gap: 15px;
+                    height: 250px;
+                    margin-bottom: 15px;
+                    
+                    div {
+                        border-radius: 15px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        
+                        img {
+                            width: 100%;
+                            height: 250px;
+                        }
+                    }
+                }
+                .dash__main__contnent__1__map {
+                    display: grid;
+                    grid-template-columns: 2.05fr 1fr;
+                    grid-gap: 15px;
+                    height: 300px;
+                    margin-bottom: 15px;
+
+                    div {
+                        border-radius: 15px;
+
+                        img {
+                            width: 100%;
+                            height: 300px;
+                        }
+                    }
+                }
+                .dash__main__contnent__1__report {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    height: 350px;
+
+                    div {
+                        // border: 1px solid var(--dash-border-color);
+                        border-radius: 15px;
+
+                        img {
+                            width: 100%;
+                            height: 350px;
+                        }
+                    }
+                }
+            }
+            .dash__main__contnent__2 {
+                width: 30%;
+                // border: 1px solid var(--dash-border-color);
+                border-radius: 15px;
+
+                img {
+                    width: 100%;
+                    height: 930px;
+                }
+            }
         }
         .dash__main__switch {
             

@@ -22,12 +22,19 @@ const Menu = ({ Logo, name }) => {
       });
   };
   return (
-    <div style={{ cursor: "pointer" }} className="menu__cont">
+    <div
+      style={{
+        cursor: "pointer",
+        backgroundColor: name === "Overview" ? "#DFE0E2" : "",
+      }}
+      className="menu__cont"
+    >
       <img alt="logo" src={Logo} />
       <p
         style={{
-          color: name === "Logout" ? "#f80d38" : "",
-          fontWeight: name === "Logout" ? "bold" : "",
+          color:
+            name === "Logout" ? "#f80d38" : name === "Overview" && "#100DB1",
+          fontWeight: name === "Logout" && "bold",
         }}
         onClick={() => {
           if (name === "Logout") {

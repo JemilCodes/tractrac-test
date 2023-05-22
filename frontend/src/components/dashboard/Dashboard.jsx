@@ -9,6 +9,33 @@ import appoint from "../../assets/img/appoint.png";
 import chat from "../../assets/img/chat.png";
 import mon from "../../assets/img/mon.png";
 import patient from "../../assets/img/patient.png";
+import call from "../../assets/img/call.png";
+import overview from "../../assets/img/overview.png";
+import overviewDark from "../../assets/img/overviewDark.png";
+import patientDark from "../../assets/img/patientDark.png";
+import chatDark from "../../assets/img/chatDark.png";
+import settingDark from "../../assets/img/settingDark.png";
+import monDark from "../../assets/img/monDark.png";
+import setting from "../../assets/img/setting.png";
+import appointDark from "../../assets/img/appointDark.png";
+import pathology from "../../assets/img/pathology.png";
+import pathologyDark from "../../assets/img/pathologyDark.png";
+
+import diagnostic from "../../assets/svg/diagnostic.png";
+import patientLogo from "../../assets/svg/patient.png";
+import health from "../../assets/svg/health.png";
+import range from "../../assets/svg/range.png";
+import pandemic from "../../assets/svg/pandemic.png";
+import doctor from "../../assets/svg/doctor.png";
+import appointment from "../../assets/svg/appointment.png";
+
+import diagnosticDark from "../../assets/svg/diagnostic-dark.png";
+import patientLogoDark from "../../assets/svg/patient-dark.png";
+import healthDark from "../../assets/svg/health-dark.png";
+import rangeDark from "../../assets/svg/range-dark.png";
+import pandemicDark from "../../assets/svg/pandemic-dark.png";
+import doctorDark from "../../assets/svg/doctor-dark.png";
+import appointmentDark from "../../assets/svg/appointment-dark.png";
 
 import Menu from "../menu/Menu";
 
@@ -45,29 +72,33 @@ const Dashboard = () => {
   const menu = [
     {
       name: "Overview",
-      Logo: mon,
+      Logo: contrast === "light" ? overview : overviewDark,
     },
     {
       name: "Appointment",
-      Logo: appoint,
+      Logo: contrast === "light" ? appoint : appointDark,
     },
     {
-      name: "Patient",
-      Logo: patient,
+      name: "Doctors",
+      Logo: contrast === "light" ? patient : patientDark,
+    },
+    {
+      name: "Pathology Results",
+      Logo: contrast === "light" ? pathology : pathologyDark,
     },
     {
       name: "Chats",
-      Logo: chat,
+      Logo: contrast === "light" ? chat : chatDark,
     },
   ];
   const menu2 = [
     {
       name: "Settings",
-      Logo: mon,
+      Logo: contrast === "light" ? setting : settingDark,
     },
     {
       name: "Logout",
-      Logo: appoint,
+      Logo: contrast === "light" ? mon : monDark,
     },
   ];
   const MenuItems = menu.map(({ Logo, name }) => {
@@ -91,11 +122,27 @@ const Dashboard = () => {
           <b>Account</b>
         </div>
         {MenuItems2}
-        <div className="side__footer"></div>
+        <div className="side__footer">
+          <div className="side__footer__1">
+            <img alt="call" src={call} />
+          </div>
+
+          <div className="side__footer__2">
+            <b>Emergency HotLines:</b>
+            <div>
+              <p>+234 92 928 2891</p>
+              <p>+234 60 621 2098</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="dash__main">
         <div className="dash__main__header">
-          <input type="search" className="dash__main__header__search"></input>
+          <input
+            type="search"
+            className="dash__main__header__search"
+            placeholder="Search pathology results"
+          ></input>
           <div className="dash__main__header__noti">
             <img alt="noti" src={noti} />
           </div>
@@ -141,6 +188,55 @@ const Dashboard = () => {
               ></div>
             </div>
             <p>Apply Dark Theme</p>
+          </div>
+        </div>
+        <div className="dash__main__content">
+          <div className="dash__main__contnent__1">
+            <div className="dash__main__contnent__1__graph">
+              <div>
+                <img
+                  alt="div"
+                  src={contrast === "light" ? diagnostic : diagnosticDark}
+                />
+              </div>
+              <div>
+                <img
+                  alt="div"
+                  src={contrast === "light" ? patientLogo : patientLogoDark}
+                />
+              </div>
+              <div>
+                <img
+                  alt="div"
+                  src={contrast === "light" ? health : healthDark}
+                />
+              </div>
+            </div>
+            <div className="dash__main__contnent__1__map">
+              <div>
+                <img
+                  alt="div"
+                  src={contrast === "light" ? pandemic : pandemicDark}
+                />
+              </div>
+              <div>
+                <img alt="div" src={contrast === "light" ? range : rangeDark} />
+              </div>
+            </div>
+            <div className="dash__main__contnent__1__report">
+              <div>
+                <img
+                  alt="div"
+                  src={contrast === "light" ? doctor : doctorDark}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="dash__main__contnent__2">
+            <img
+              alt={appointment}
+              src={contrast === "light" ? appointment : appointmentDark}
+            />
           </div>
         </div>
       </div>

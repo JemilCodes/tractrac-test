@@ -16,6 +16,7 @@
   --dash-background-color: #ffffff;
   --dash-side-back-color: #f7f7f7;
   --switch-color: #343434;
+  --dash-border-color: #ededed;
 }
 :root.dark {
   --form-background-color: #050517;
@@ -25,9 +26,10 @@
   --forgot-color: #ffffff;
   --input-background-color: #050517;
   --form-card-border-color: #3d3d3d;
+  --dash-border-color: #3d3d3d;
 
   --dash-background-color: #050517;
-  --dash-side-back-color: #100db1;
+  --dash-side-back-color: #0c0c35;
   --switch-color: #f80d38;
 }
 
