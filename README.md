@@ -1,7 +1,7 @@
 # tractrac-test
 # Clone the repository
 The project files are in the master branch, 
-run git clone <repository-url>
+==> branch to the master and run git clone <repository-url>
 # Install dependencies
 cd <project-folder>
 npm install
