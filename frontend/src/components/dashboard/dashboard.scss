@@ -64,8 +64,8 @@
             height: 87.7px;
 
             .side__footer__1 {
-                width: 40px;
-                height: 40px;
+                width: 30px;
+                height: 30px;
                 border-radius: 5px;
                 -webkit-border-radius: 5px;
                 -moz-border-radius: 5px;
@@ -75,12 +75,13 @@
                 justify-content: center;
                 align-items: center;
                 background-color: #100DB1;
-                margin-right: 15px;
+                margin:0 15px;
 
             }
             .side__footer__2 {
                 b {
                     color: #F80D38;
+                    font-size: 12px;
                 }
                 div {
                     display: flex;
