@@ -27,7 +27,6 @@ import patientLogo from "../../assets/svg/patient.png";
 import health from "../../assets/svg/health.png";
 import range from "../../assets/svg/range.png";
 import pandemic from "../../assets/svg/pandemic.png";
-import doctor from "../../assets/svg/doctor.png";
 import appointment from "../../assets/svg/appointment.png";
 
 import diagnosticDark from "../../assets/svg/diagnostic-dark.png";
@@ -35,12 +34,8 @@ import patientLogoDark from "../../assets/svg/patient-dark.png";
 import healthDark from "../../assets/svg/health-dark.png";
 import rangeDark from "../../assets/svg/range-dark.png";
 import pandemicDark from "../../assets/svg/pandemic-dark.png";
-import doctorDark from "../../assets/svg/doctor-dark.png";
 import appointmentDark from "../../assets/svg/appointment-dark.png";
 
-import search from "../../assets/img/search.png";
-import searchDark from "../../assets/img/searchDark.png";
-import ham from "../../assets/img/ham.png";
 import { BiSearch } from "react-icons/bi";
 
 import Menu from "../menu/Menu";
@@ -147,11 +142,15 @@ const Dashboard = () => {
       </div>
       <div className="dash__main">
         <div className="dash__main__header">
-          <input
-            type="search"
-            className="dash__main__header__search"
-            placeholder="Search pathology results"
-          ></input>
+          <div className="dash__main__header__search__cont">
+            <BiSearch />
+            <input
+              type="search"
+              className="dash__main__header__search"
+              placeholder="Search pathology results"
+            />
+          </div>
+
           <div className="dash__main__header__noti">
             <img alt="noti" src={noti} />
           </div>
@@ -192,7 +191,7 @@ const Dashboard = () => {
               }}
             >
               <div
-                style={{ left: contrast === "light" ? "0" : "20px" }}
+                style={{ left: contrast === "light" ? "0" : "15px" }}
                 className="switch__circle"
               ></div>
             </div>

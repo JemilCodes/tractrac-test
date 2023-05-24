@@ -109,19 +109,31 @@
             -o-border-radius: 15px;
             padding: 20px;
 
-            .dash__main__header__search {
+            .dash__main__header__search__cont {
                 width: 70%;
                 height: 40.59px;
-                border-radius: 15px;
-                -webkit-border-radius: 15px;
-                -moz-border-radius: 15px;
-                -ms-border-radius: 15px;
-                -o-border-radius: 15px;
-                border: none;
-                outline: none;
-                padding: 1em;
                 margin-right: 20px;
-                font-family: Poppins-Regular;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: white;
+                border-radius: 15px;
+
+                .dash__main__header__search {
+                    width: 95%;
+                    height: 40.59px;
+                    border-radius: 15px;
+                    -webkit-border-radius: 15px;
+                    -moz-border-radius: 15px;
+                    -ms-border-radius: 15px;
+                    -o-border-radius: 15px;
+                    border: none;
+                    outline: none;
+                    padding: 1em;
+                    font-family: Poppins-Regular;
+                    background-color: transparent;
+    
+                }
             }
             .dash__main__header__noti {
                 background-color: white;
@@ -191,8 +203,8 @@
                 }
                 .switch {
                     position: relative;
-                    width: 40px;
-                    height: 20px;
+                    width: 30px;
+                    height: 15px;
                     margin-right: 8px;
                     display: flex;
                     align-items: center;
@@ -202,8 +214,8 @@
                     .switch__circle {
                         position: absolute;
                         left: 0;
-                        width: 20px;
-                        height: 20px;
+                        width: 15px;
+                        height: 15px;
                         border-radius:50% ;
                         -webkit-border-radius:50% ;
                         -moz-border-radius:50% ;
@@ -302,7 +314,6 @@
                                     justify-content: center;
                                     align-items: center;
                                     border-radius: 5px;
-        
 
                                     input {
                                         width: 95%;
@@ -463,16 +474,12 @@
                             }
                             
                         }
-                        // img {
-                        //     width: 100%;
-                        //     height: 350px;
-                        // }
+                      
                     }
                 }
             }
             .dash__main__contnent__2 {
                 width: 30%;
-                // border: 1px solid var(--dash-border-color);
                 border-radius: 15px;
 
                 img {
