@@ -34,7 +34,8 @@ const Menu = ({ Logo, name }) => {
         style={{
           color:
             name === "Logout" ? "#f80d38" : name === "Overview" && "#100DB1",
-          fontWeight: name === "Logout" && "bold",
+          fontWeight: name === "Logout" && "900",
+          ...(name === "Overview" && { fontWeight: "900" }),
         }}
         onClick={() => {
           if (name === "Logout") {

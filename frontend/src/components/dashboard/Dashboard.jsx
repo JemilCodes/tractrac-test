@@ -3,6 +3,7 @@ import "./dashboard.scss";
 
 import Logo from "../../assets/img/logo.png";
 import expand from "../../assets/img/expand.png";
+import expandDark from "../../assets/img/expandDark.png";
 import noti from "../../assets/img/noti.png";
 import line from "../../assets/img/line.png";
 import appoint from "../../assets/img/appoint.png";
@@ -115,7 +116,8 @@ const Dashboard = () => {
             <img alt="logo" src={Logo} />
             <p>Iwosan</p>
           </div>
-          <img alt="expand" src={expand} />
+          {contrast === "light" && <img alt="expand" src={expand} />}
+          {contrast === "dark" && <img alt="expand" src={expandDark} />}
         </div>
         {MenuItems}
         <div className="side__acount">
