@@ -38,11 +38,17 @@ import pandemicDark from "../../assets/svg/pandemic-dark.png";
 import doctorDark from "../../assets/svg/doctor-dark.png";
 import appointmentDark from "../../assets/svg/appointment-dark.png";
 
+import search from "../../assets/img/search.png";
+import searchDark from "../../assets/img/searchDark.png";
+import ham from "../../assets/img/ham.png";
+import { BiSearch } from "react-icons/bi";
+
 import Menu from "../menu/Menu";
 
 import { useNavigate } from "react-router-dom";
 import { reactLocalStorage } from "reactjs-localstorage";
 import { ImBrightnessContrast } from "react-icons/im";
+import Doctor from "./component/Doctor";
 
 const Dashboard = () => {
   const [patientData, setPatientData] = useState();
@@ -63,6 +69,7 @@ const Dashboard = () => {
         setPatientData(result);
       })
       .catch((err) => {
+        // navigate("/login");
         console.log(err);
       });
   }, []);
@@ -226,11 +233,61 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="dash__main__contnent__1__report">
-              <div>
-                <img
-                  alt="div"
-                  src={contrast === "light" ? doctor : doctorDark}
-                />
+              <div className="dash__main__contnent__1__report__cont">
+                <div className="dash__main__contnent__1__report__header">
+                  <b>Doctor</b>
+                  <div className="dash__main__contnent__1__report__header__cont">
+                    <div className="dash__main__contnent__1__report__header__input">
+                      <BiSearch
+                        style={{ color: "var(--input-color)", margin: "10px" }}
+                      />
+                      <input
+                        type="saerch"
+                        placeholder="Search pathology results"
+                      />
+                    </div>
+                    <div className="dash__main__contnent__1__report__header__buttons">
+                      <div
+                        style={{ backgroundColor: "#f80d38", color: "white" }}
+                        className="report__header__buttons__1"
+                      >
+                        <b style={{ color: "white" }}>ALL</b>
+                      </div>
+                      <div className="report__header__buttons__1">
+                        <b>MEN</b>
+                      </div>
+                      <div
+                        style={{ borderRight: "none" }}
+                        className="report__header__buttons__1"
+                      >
+                        <b>WOMAN</b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="report__main__header">
+                  <div className="report__main__header__1">
+                    <b>name</b>
+                  </div>
+                  <div className="report__main__header__2">
+                    <b>Role</b>
+                  </div>
+                  <div className="report__main__header__3">
+                    <b>booked appointments</b>
+                  </div>
+                  <div className="report__main__header__4">
+                    <b>chat</b>
+                  </div>
+                  <div className="report__main__header__5">
+                    <b>book new appointments</b>
+                  </div>
+                </div>
+                <Doctor contrast={contrast} />
+                <Doctor contrast={contrast} />
+                <Doctor picked={true} contrast={contrast} />
+                <div className="report__main__button">
+                  <b>GO TO DOCTORS</b>
+                </div>
               </div>
             </div>
           </div>

@@ -17,6 +17,7 @@
   --dash-side-back-color: #f7f7f7;
   --switch-color: #343434;
   --dash-border-color: #ededed;
+  --dash-report-color: #ededed;
 }
 :root.dark {
   --form-background-color: #050517;
@@ -46,4 +47,8 @@ p {
 }
 b {
   font-family: Poppins-Bold;
+}
+
+::placeholder {
+  color: var(--input-color);
 }
