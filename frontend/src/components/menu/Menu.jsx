@@ -1,9 +1,12 @@
+import { useState } from "react";
 import "./menu.scss";
 import { useNavigate } from "react-router-dom";
 
 const Menu = ({ Logo, name }) => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const handleLogout = () => {
+    setIsLoading(true);
     fetch(`http://localhost:5000/tratrac-health/api/v1/auth/logout`, {
       method: "POST",
       credentials: "include",
@@ -12,12 +15,13 @@ const Menu = ({ Logo, name }) => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
+        setIsLoading(false);
         if (result === "loggedOut") {
           navigate("/login");
         }
       })
       .catch((err) => {
+        setIsLoading(false);
         console.log(err);
       });
   };
@@ -43,7 +47,7 @@ const Menu = ({ Logo, name }) => {
           }
         }}
       >
-        {name}
+        {name === "Logout" ? (isLoading ? "Loading..." : name) : name}
       </p>
     </div>
   );

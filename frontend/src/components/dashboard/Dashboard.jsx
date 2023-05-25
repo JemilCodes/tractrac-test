@@ -36,6 +36,8 @@ import rangeDark from "../../assets/svg/range-dark.png";
 import pandemicDark from "../../assets/svg/pandemic-dark.png";
 import appointmentDark from "../../assets/svg/appointment-dark.png";
 
+import mobileLogo from "../../assets/img/mobileLogo.png";
+
 import { BiSearch } from "react-icons/bi";
 
 import Menu from "../menu/Menu";
@@ -51,20 +53,20 @@ const Dashboard = () => {
   const [contrast, setContrast] = useState(
     reactLocalStorage.get("contrast", "light", true)
   );
+  const [expanded, setExpanded] = useState(true);
   useEffect(() => {
     fetch(`http://localhost:5000/tratrac-health/api/v1/auth/isLoggedIn`, {
       credentials: "include",
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result === "false") {
           navigate("/login");
         }
         setPatientData(result);
       })
       .catch((err) => {
-        // navigate("/login");
+        navigate("/login");
         console.log(err);
       });
   }, []);
@@ -107,40 +109,140 @@ const Dashboard = () => {
   const MenuItems = menu.map(({ Logo, name }) => {
     return <Menu Logo={Logo} name={name} key={name} />;
   });
+
   const MenuItems2 = menu2.map(({ Logo, name }) => {
     return <Menu Logo={Logo} name={name} key={name} />;
   });
+
+  const handleLogout = () => {
+    fetch(`http://localhost:5000/tratrac-health/api/v1/auth/logout`, {
+      method: "POST",
+      credentials: "include",
+      headers: { "content-Type": "application/json" },
+      body: JSON.stringify({}),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result === "loggedOut") {
+          navigate("/login");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const MenuItemsMobile = menu.map(({ Logo, name }) => {
+    return (
+      <div
+        key={name}
+        style={{
+          marginBottom: name === "Chats" && "100px",
+          backgroundColor: name === "Overview" && "#D3D3D3",
+        }}
+        className="mobile__side__li_1"
+      >
+        <img alt={name} src={Logo} />
+      </div>
+    );
+  });
+
+  const MenuItems2Mobile = menu2.map(({ Logo, name }) => {
+    return (
+      <img
+        alt={name}
+        src={Logo}
+        key={name}
+        className="mobile__side__li_2"
+        onClick={() => {
+          if (name === "Logout") {
+            handleLogout();
+          }
+        }}
+      />
+    );
+  });
+
   return (
     <div className="dash__container">
-      <div className="dash__side">
-        <div className="dash__side__header">
-          <div className="dash__side__header__logo">
-            <img alt="logo" src={Logo} />
-            <p>Iwosan</p>
+      {expanded && (
+        <div className="dash__side">
+          <div className="dash__side__header">
+            <div className="dash__side__header__logo">
+              <img alt="logo" src={Logo} />
+              <p>Iwosan</p>
+            </div>
+            {contrast === "light" && (
+              <img
+                alt="expand"
+                src={expand}
+                style={{ cursor: "pointer" }}
+                onClick={() => setExpanded(false)}
+              />
+            )}
+            {contrast === "dark" && (
+              <img
+                alt="expand"
+                src={expandDark}
+                style={{ cursor: "pointer" }}
+                onClick={() => setExpanded(false)}
+              />
+            )}
           </div>
-          {contrast === "light" && <img alt="expand" src={expand} />}
-          {contrast === "dark" && <img alt="expand" src={expandDark} />}
-        </div>
-        {MenuItems}
-        <div className="side__acount">
-          <b>Account</b>
-        </div>
-        {MenuItems2}
-        <div className="side__footer">
-          <div className="side__footer__1">
-            <img alt="call" src={call} />
+          {MenuItems}
+          <div className="side__acount">
+            <b>Account</b>
           </div>
+          {MenuItems2}
+          <div className="side__footer">
+            <div className="side__footer__1">
+              <img alt="call" src={call} />
+            </div>
 
-          <div className="side__footer__2">
-            <b>Emergency HotLines:</b>
-            <div>
-              <p>+234 92 928 2891</p>
-              <p>+234 60 621 2098</p>
+            <div className="side__footer__2">
+              <b>Emergency HotLines:</b>
+              <div>
+                <p>+234 92 928 2891</p>
+                <p>+234 60 621 2098</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="dash__main">
+      )}
+
+      {expanded === false && (
+        <div className="mobile__side">
+          <div className="mobile__side__header">
+            <img alt="mobileLogo" src={mobileLogo} />
+          </div>
+          {MenuItemsMobile}
+          {MenuItems2Mobile}
+          {contrast === "light" && (
+            <img
+              alt="expand"
+              style={{ cursor: "pointer" }}
+              src={expand}
+              onClick={() => setExpanded(true)}
+            />
+          )}
+          {contrast === "dark" && (
+            <img
+              alt="expand"
+              src={expandDark}
+              style={{ cursor: "pointer" }}
+              onClick={() => setExpanded(true)}
+            />
+          )}
+          <div className="mobile__side__footer">
+            <div>
+              <img alt="call" src={call} />
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div style={{ width: !expanded && "95%" }} className="dash__main">
         <div className="dash__main__header">
           <div className="dash__main__header__search__cont">
             <BiSearch />
@@ -281,9 +383,9 @@ const Dashboard = () => {
                     <b>book new appointments</b>
                   </div>
                 </div>
-                <Doctor contrast={contrast} />
-                <Doctor contrast={contrast} />
-                <Doctor picked={true} contrast={contrast} />
+                <Doctor contrast={contrast} expanded={expanded} />
+                <Doctor contrast={contrast} expanded={expanded} />
+                <Doctor picked={true} contrast={contrast} expanded={expanded} />
                 <div className="report__main__button">
                   <b>GO TO DOCTORS</b>
                 </div>

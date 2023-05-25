@@ -390,6 +390,7 @@
                             padding: 10px;
                             border-radius: 15px;
                             margin-bottom: 10px;
+                            justify-content: space-between;
 
                             b {
                                 color: var(--input-color);
@@ -424,7 +425,7 @@
                             }
                             .report__main__content__4 {
                                 width: fit-content;
-                                margin-right: 5%;
+                                margin-right: 7%;
                             }
                             .report__main__content__5 {
                                 display: flex;
@@ -500,3 +501,71 @@
 
 
 
+.mobile__side {
+    position: relative;
+    background-color: var(--mobile-side-bg);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    width: 5%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+
+    .mobile__side__header {
+        border-bottom: 1px solid #D3D3D3;
+        width: 100%;
+        height: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+
+        img {
+            width: 25px;
+            height: 30px;
+        }
+    }
+    .mobile__side__li_1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        margin-bottom: 50px;
+        cursor: pointer;
+    }
+    .mobile__side__li_2 {
+        margin-bottom: 50px;
+        cursor: pointer;
+    }
+
+    .mobile__side__footer {
+        position: absolute;
+        bottom: 0;
+        border-top: 1px solid #D3D3D3;
+        width: 100%;
+        height: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        div {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            background-color: #100DB1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

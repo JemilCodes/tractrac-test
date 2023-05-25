@@ -4,7 +4,7 @@ import chat from "../../../assets/img/chat.png";
 import chatDark from "../../../assets/img/chatDark.png";
 import { BsThreeDots } from "react-icons/bs";
 
-const Doctor = ({ picked, contrast }) => {
+const Doctor = ({ picked, contrast, expanded }) => {
   return (
     <div className="report__main__content">
       <div className="report__main__content__1">
@@ -14,7 +14,12 @@ const Doctor = ({ picked, contrast }) => {
       <div className="report__main__content__2">
         <b>Heart Surgeon</b>
       </div>
-      <div className="report__main__content__3">
+      <div
+        style={{
+          marginRight: !expanded && "3%",
+        }}
+        className="report__main__content__3"
+      >
         <b>66</b>
       </div>
       <div className="report__main__content__4">

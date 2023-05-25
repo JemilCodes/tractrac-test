@@ -18,6 +18,8 @@
   --switch-color: #343434;
   --dash-border-color: #ededed;
   --dash-report-color: #ededed;
+
+  --mobile-side-bg: #f7f7f7;
 }
 :root.dark {
   --form-background-color: #050517;
@@ -32,6 +34,8 @@
   --dash-background-color: #050517;
   --dash-side-back-color: #0c0c35;
   --switch-color: #f80d38;
+
+  --mobile-side-bg: #0c0c35;
 }
 
 @font-face {
