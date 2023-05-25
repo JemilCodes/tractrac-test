@@ -8,8 +8,12 @@ npm install
 # Configure environment variables:
 There is no need for any enviromental variable configuration because this is a test project. I included the .env files
 # Start the development server
-run npm start to start the backend
-run npm run dev to start the frontend
+for backend
+  cd backend
+  npm start
+for frontend
+  cd frontend
+  npm run dev
 note: the backend most be started before the frontend functionality works.
 # Folder Structure
 ├── client/             # Frontend codebase (React.js)
