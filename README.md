@@ -14,7 +14,7 @@ for backend
 for frontend
   ==> cd frontend
   ==> npm run dev
-note: the backend most be started before the frontend functionality works.
+NOTE: the backend most be started before the frontend functionality works.
 # Folder Structure
 ├── client/             # Frontend codebase (React.js)
 ├── server/             # Backend codebase (Node.js, Express.js)
