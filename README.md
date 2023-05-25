@@ -3,7 +3,7 @@
 The project files are in the master branch, 
 ==> branch to the master and run git clone <repository-url>
 # Install dependencies
-cd <project-folder>
+cd (project-folder)
 npm install
 # Configure environment variables:
 There is no need for any enviromental variable configuration because this is a test project. I included the .env files
