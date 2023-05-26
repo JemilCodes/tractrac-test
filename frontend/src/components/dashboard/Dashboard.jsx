@@ -16,7 +16,7 @@ import overviewDark from "../../assets/img/overviewDark.png";
 import patientDark from "../../assets/img/patientDark.png";
 import chatDark from "../../assets/img/chatDark.png";
 import settingDark from "../../assets/img/settingDark.png";
-import monDark from "../../assets/img/monDark.png";
+import monDark from "../../assets/img/mondark.png";
 import setting from "../../assets/img/setting.png";
 import appointDark from "../../assets/img/appointDark.png";
 import pathology from "../../assets/img/pathology.png";
