@@ -53,7 +53,7 @@ const Dashboard = () => {
   const [contrast, setContrast] = useState(
     reactLocalStorage.get("contrast", "light", true)
   );
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   useEffect(() => {
     fetch(`http://localhost:5000/tratrac-health/api/v1/auth/isLoggedIn`, {
       credentials: "include",
